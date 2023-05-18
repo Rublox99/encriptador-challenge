@@ -5,9 +5,16 @@
     width: 100%;
 }
 
+.class-header{
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    font-style: italic;
+    font-size: 18px;
+}
+
 .class-main{
-    background-color: red;
-    height: 94.3vh;
+    height: 91.4vh;
     width: 100%;
 }
 
@@ -39,6 +46,7 @@
     width: 49%;
     display: inline-block;
     position: relative;
+    margin: 6px;
 }
 
 #textarea-salida{
@@ -52,6 +60,7 @@
 /*-------------------------------------------------INPUT-TEXTAREAS-----------------------------------------------------*/
 #texto-ingresado, #texto-resultado{
     width: 100%;
+    resize: none;
 }
 
 /*---------------------------------------------------------------------------------------------------------------------*/
@@ -63,6 +72,10 @@
 
 #divDesencriptacion{
     display: inline;
+}
+
+#divCambiar{
+    margin: 10px 0;
 }
 /*---------------------------------------------------------------------------------------------------------------------*/
 
