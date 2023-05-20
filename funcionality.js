@@ -1,25 +1,26 @@
 //variables globales
-var textoIngresado;//variable que almacena el string del textarea ingresado
-var textoResultado;
+var textoIngresado= "";//variable que almacena el string del textarea ingresado
+var textoResultado= "";
 var modo= 0; //0 para encriptar; 1 para desencriptar 
 
 var botonEncriptar= document.getElementById("boton-encriptar");
 var botonDesencriptar= document.getElementById("boton-desencriptar");
-var botonCambiar= document.getElementById("boton-cambiar");
-
+var botonLimpiar= document.getElementById("boton-limpiar");
 
 botonEncriptar.onclick= validarTextoEncriptado;
 botonDesencriptar.onclick= validarTextoDesencriptado;
-botonCambiar.onclick= cambiarModo;
+botonLimpiar.onclick= limpiarContenido;
 
+var mensajeAdvertencia= ""; 
 function validarTextoEncriptado(){
     //valida solo hayan carácteres del abecedario que no traten acentos, caracteres especiales o mayusculas
     if(/[a-z]$/.test(document.getElementById("texto-ingresado").value)){  
         textoIngresado= document.getElementById("texto-ingresado").value;
         encriptarTexto();
 
-    } else{
-        alert("Su mensaje plano no debe tratar mayúsculas, caracteres especiales o tildes")
+    } else{ //modifica el html del apartado divAdvertencia si no se cumplen los requisitos
+        let modificadorAdvertencia= document.getElementById("contenidoAdvertencia");
+        modificadorAdvertencia.innerHTML= "Su mensaje no debe tratar mayúsculas, caracteres especiales, tildes o mensajes vacíos";
     }
 }
 
@@ -70,12 +71,15 @@ function validarTextoDesencriptado(){
             desencriptarTexto();
     
         } else{
-            alert("Su mensaje plano no debe tratar mayúsculas, caracteres especiales o tildes")
+            let modificadorAdvertencia= document.getElementById("contenidoAdvertencia");
+            modificadorAdvertencia.innerHTML= "Su mensaje no debe tratar mayúsculas, caracteres especiales, tildes o mensajes vacíos";
         }
 }
 
 function desencriptarTexto(){
     var acumulado_de_desencriptacion= textoIngresado; //recopila el texto ingresado
+    var auxContador= textoIngresado;
+
     //crea dos arreglos de tamaños simétricos, para comparar reemplazar con la función str.replace(buscarTal, sustituirPor)
     var vocales= ["a", "e", "i", "o", "u"];
     var reglas= ["ai", "enter", "imes", "ober", "ufat"];
@@ -88,35 +92,22 @@ function desencriptarTexto(){
         }
     }
 
-    //almacena en la variable global y modifica el value del elemento HTML
-    textoResultado= acumulado_de_desencriptacion;
-    document.getElementById("texto-resultado").value= textoResultado;
+    //si el texto original al desencriptado son iguales, es porque el mensaje no tiene encriptación de este tipo
+    //en ambos casos del condicionante, se modifica el contenido del mensaje
+    if (acumulado_de_desencriptacion== auxContador){
+        let modificadorAdvertencia= document.getElementById("contenidoAdvertencia");
+        modificadorAdvertencia.innerHTML= "Su mensaje no tiene niveles de encriptación ONE";
+    } else{
+        //en este caso, cambia el contenido del mensaje al desencriptado
+        textoResultado= acumulado_de_desencriptacion;
+        document.getElementById("texto-resultado").value= textoResultado;
+    }
 
 }
 
-function cambiarModo(){
-    let textarea_entrada= document.getElementById("texto-ingresado");
-    let textarea_salida= document.getElementById("texto-resultado");
-
-    if (modo== 0){
-        botonDesencriptar.disabled= false;
-        botonEncriptar.disabled= true;
-        
-        document.getElementById("texto-ingresado").value= "";
-        textarea_entrada.placeholder= "Mensaje encriptado";
-        document.getElementById("texto-resultado").value= "";
-        textarea_salida.placeholder= "Mensaje plano";
-
-        modo= 1;
-    } else {        
-        botonDesencriptar.disabled= true;
-        botonEncriptar.disabled= false;
-
-        document.getElementById("texto-ingresado").value= "";
-        textarea_entrada.placeholder= "Mensaje plano";
-        document.getElementById("texto-resultado").value= "";
-        textarea_salida.placeholder= "Mensaje encriptado";
-
-        modo= 0;
-    }
+function limpiarContenido(){
+    textoIngresado= "";
+    textoResultado= "";
+    document.getElementById("texto-ingresado").value= "";
+    document.getElementById("texto-resultado").value= "";
 }
