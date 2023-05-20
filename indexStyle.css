@@ -48,21 +48,21 @@
     position: relative;
     bottom: 10px;
     animation: coloresFooter;
-    animation-duration: 8s;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
 @keyframes coloresFooter {
-    0%{ color: red;}
+    0%{ color: #f51441;}
 
     25%{ color: pink;}
 
-    50%{ color: green;}
+    50%{ color: #a7ba59;}
 
-    75%{ color: yellow;}
+    75%{ color: #e1b866;}
 
-    100%{ color: blue;}
+    100%{ color: #429398;}
 }
 
 /*---------------------------------------------------------------------------------------------------------------------*/
@@ -110,6 +110,46 @@
 
 #texto-resultado:hover{
     cursor: pointer;
+}
+
+.espacio-copiarEntrada{
+    display: inline-block;
+}
+
+.espacio-copiarSalida{
+    display: inline-block;
+}
+
+#copiarEntrada{
+    position: relative;
+    left: 20px;
+    scale: 60%;
+    transition: 0.2s;
+}
+
+#copiarSalida{
+    position: relative;
+    right: 14px;
+    scale: 60%;
+    transition: 0.2s;
+}
+
+#copiarEntrada:hover, #copiarSalida:hover{
+    transform: scale(0.8);
+}
+
+#copiarEntrada:active, #copiarSalida:active{
+    filter: opacity(0.5);
+}
+
+@media screen and (max-width: 828px){
+    #copiarEntrada{
+        margin-left: 70px;
+    }
+
+    .class-footer{
+        top: 250px;
+    }
 }
 
 /*---------------------------------------------------------------------------------------------------------------------*/
@@ -184,5 +224,10 @@
 
     #contenidoAdvertencia{
         width: 100%;
+    }
+
+    .class-footer{
+        position: relative;
+        top: auto;
     }
 }
