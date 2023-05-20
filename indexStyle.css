@@ -36,7 +36,7 @@
 .class-advertencia{
     position: relative;
     height: 10%;
-    width: 50%;
+    width: 75%;
     margin: 75px auto;
     text-align: center;
 }
@@ -136,6 +136,25 @@
     display: inline-block;
     padding: 7px;
     font-size: 18px;
-    font-weight: bold;
     color: #f1debd;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 480px){
+    #textarea-ingreso{
+        width: 40%;
+    }
+    
+    #textarea-salida{
+        width: 40%;
+    }
+
+    #boton-encriptar, #boton-desencriptar, #boton-limpiar{
+        width: 25%;
+    }
+
+    #contenidoAdvertencia{
+        width: 100%;
+    }
 }
