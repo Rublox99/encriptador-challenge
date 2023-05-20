@@ -46,11 +46,21 @@
     text-align: center;    
     width: 100%;
     position: relative;
-    bottom: 10px;
+    bottom: 40px;
     animation: coloresFooter;
     animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+}
+
+a:hover{
+    filter: opacity(0.5);
 }
 
 @keyframes coloresFooter {
@@ -208,6 +218,12 @@
 }
 
 /*---------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-height: 875px){
+    #textarea-ingreso, #textarea-salida{
+        height: 90%;
+    }
+}
+
 @media screen and (max-width: 825px){
     .class-advertencia{
         position: relative;
