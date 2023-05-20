@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="indexStyle.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Outfit:wght@200&display=swap" rel="stylesheet">
+
     <title>Encriptador - ONE</title>
 </head>
 
@@ -16,12 +21,13 @@
         
         <div class="class-textareas">
             <div id="textarea-ingreso">
-                <textarea name="texto-ingresado" id="texto-ingresado" cols="30" rows="10" placeholder="Mensaje plano" autofocus></textarea>
+                <textarea name="texto-ingresado" id="texto-ingresado" cols="20" rows="10" placeholder="Ingrese aquí su mensaje" autofocus></textarea>
             </div>
     
             <div id="textarea-salida">
-                <textarea name="texto-resultado" id="texto-resultado" cols="30" rows="10" placeholder="Mensaje encriptado" readonly></textarea>
+                <textarea name="texto-resultado" id="texto-resultado" cols="20" rows="10" readonly></textarea>
             </div>
+            
         </div>
 
         <div class="class-buttons">
@@ -30,13 +36,20 @@
             </div>
     
             <div id="divDesencriptacion">
-                <input type="button" value="Desencriptar" id="boton-desencriptar" disabled>
+                <input type="button" value="Desencriptar" id="boton-desencriptar">
             </div>
 
-            <div id="divCambiar">
-                <input type="button" value="Cambiar" id="boton-cambiar">
+            <div id="divLimpiar">
+                <input type="button" value="Limpiar" id="boton-limpiar">
             </div>
         </div>
+
+        <section class="class-advertencia">
+            <div id="divAdvertencia">
+                <p id="contenidoAdvertencia">
+                </p>
+            </div>
+        </section>
 
     </main>
 
