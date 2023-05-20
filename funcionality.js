@@ -15,6 +15,9 @@ var mensajeAdvertencia= "";
 function validarTextoEncriptado(){
     //valida solo hayan carácteres del abecedario que no traten acentos, caracteres especiales o mayusculas
     if(/[a-z]$/.test(document.getElementById("texto-ingresado").value)){  
+        let modificadorAdvertencia= document.getElementById("contenidoAdvertencia");
+        modificadorAdvertencia.innerHTML= "";
+
         textoIngresado= document.getElementById("texto-ingresado").value;
         encriptarTexto();
 
@@ -66,7 +69,10 @@ function encriptarTexto(){
 
 function validarTextoDesencriptado(){
         //valida solo hayan carácteres del abecedario que no traten acentos, caracteres especiales o mayusculas
-        if(/[a-z]$/.test(document.getElementById("texto-ingresado").value)){  
+        if(/[a-z]$/.test(document.getElementById("texto-ingresado").value)){
+            let modificadorAdvertencia= document.getElementById("contenidoAdvertencia");
+            modificadorAdvertencia.innerHTML= "";
+
             textoIngresado= document.getElementById("texto-ingresado").value;
             desencriptarTexto();
     
@@ -110,4 +116,7 @@ function limpiarContenido(){
     textoResultado= "";
     document.getElementById("texto-ingresado").value= "";
     document.getElementById("texto-resultado").value= "";
+
+    let modificadorAdvertencia= document.getElementById("contenidoAdvertencia");
+    modificadorAdvertencia.innerHTML= "";
 }
