@@ -11,7 +11,7 @@
     color: white;
     text-align: center;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 25px;
     margin: 5px 0 0 0 ;
     
 }
@@ -46,7 +46,23 @@
     text-align: center;    
     width: 100%;
     position: relative;
-    top: 3px;
+    bottom: 10px;
+    animation: coloresFooter;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes coloresFooter {
+    0%{ color: red;}
+
+    25%{ color: pink;}
+
+    50%{ color: green;}
+
+    75%{ color: yellow;}
+
+    100%{ color: blue;}
 }
 
 /*---------------------------------------------------------------------------------------------------------------------*/
@@ -78,7 +94,7 @@
     background-color: #333e50;
     color: #f1debd;
     border: 1px solid #f1debd;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 #texto-resultado{
@@ -124,11 +140,23 @@
     color: #f1debd;
     border: 1px solid #333e50;
     border-radius: 5px;
+    transition: 0.5s;
 }
 
 #boton-encriptar:hover, #boton-desencriptar:hover, #boton-limpiar:hover{
     cursor: pointer;
+    background-color: transparent;
+    color: #f1debd;
+    border: 1px solid #f1debd;
+    box-shadow: 2px 2px 2px 2px #f1debd;
+    box-shadow: #f1debd 0px 3px 4px;
 }
+
+#boton-encriptar:active, #boton-desencriptar:active, #boton-limpiar:active{
+    transform: scale(0.9);
+}
+
+
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 #contenidoAdvertencia{
